@@ -14,18 +14,42 @@ struct ContentView: View {
     
     var body: some View {
         
-        HStack {
-            ForEach(viewModel.cards) { card in
-                Text(card.content)
-                    .makeCard(isFaceUp: card.isFaceUp)
-                    .onTapGesture {
-                        viewModel.choose(card: card)
+        VStack {
+            if viewModel.gameHasEnded {
+                Spacer()
+                Text("Acabou o jogo")
+                    .font(.system(size: 60))
+                Spacer()
+            }else {
+                Grid(viewModel.cards) { card in
+                    GeometryReader { geometry in
+                        Text(card.content)
+                            .makeCard(isFaceUp: card.isFaceUp)
+                            .padding(4)
+                            .font(.system(size: fontSize(for: geometry.size)))
+                            .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
+                            .opacity(card.isMatched ? 0 : 1)
+                            .onTapGesture {
+                                withAnimation {
+                                    viewModel.choose(card: card)
+                                }
+                            }
                     }
+                }
+            }
+            
+            Button("Novo Jogo") {
+                withAnimation(.easeInOut) {
+                    viewModel.newGame()
+                }
             }
         }
-        .font(Font.system(size: 30))
         .foregroundColor(Color.red)
     
+    }
+    
+    private func fontSize(for size: CGSize) -> CGFloat {
+        return min(size.width, size.height) * 0.7
     }
 }
 

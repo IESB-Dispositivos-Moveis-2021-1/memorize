@@ -17,16 +17,21 @@ class EmojiMemoryGame: ObservableObject {
     
     
     static func createMemoryGame() -> MemoryGame<String>  {
-        let emojis = ["⚽️", "🥎", "🎱"]
+        var emojis = ["⚽️", "🥎", "🎱", "⛷", "🚴🏼‍♀️", "🏄🏼‍♀️", "⛳️"].shuffled()
+        emojis = emojis.dropLast(emojis.count - Int.random(in: 2...5))
+        
         return MemoryGame(numberOfPairsOfCards: emojis.count) { emojis[$0] }
     }
     
- 
     // MARK: - Acesso da View à Model
     
     var cards: Array<MemoryGame<String>.Card> {
         print(model.cards)
         return model.cards
+    }
+    
+    var gameHasEnded: Bool {
+        model.gameHasEnded
     }
     
     
@@ -38,5 +43,8 @@ class EmojiMemoryGame: ObservableObject {
         model.choose(card: card)
     }
     
+    func newGame() {
+        model = EmojiMemoryGame.createMemoryGame()
+    }
     
 }

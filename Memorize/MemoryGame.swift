@@ -13,8 +13,18 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     var cards: Array<Card> // é a mesma coisa de var cartas: [Card]
     
-    private var indexOfPreviousChosenCard: Int?
+    private var indexOfPreviousChosenCard: Int? {
+        get {
+            cards.indices.filter { cards[$0].isFaceUp }.only
+        }
+        set {
+            cards.indices.forEach { cards[$0].isFaceUp = $0 == newValue }
+        }
+    }
     
+    var gameHasEnded: Bool {
+        cards.allSatisfy { $0.isMatched }
+    }
     
     /*
      
@@ -38,7 +48,9 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
             cards.append(Card(id: pairIndex * 2 + 1, content: content))
         }
         
-        
+        print(cards)
+        cards.shuffle()
+        print(cards)
     }
     
     
