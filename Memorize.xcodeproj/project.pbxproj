@@ -15,6 +15,7 @@
 		EBB95DA926AA3B3500D42133 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB95DA826AA3B3500D42133 /* Assets.xcassets */; };
 		EBB95DAC26AA3B3500D42133 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB95DAB26AA3B3500D42133 /* Preview Assets.xcassets */; };
 		EBB95DB426AA4D0B00D42133 /* CardMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB95DB326AA4D0B00D42133 /* CardMaker.swift */; };
+		EBDA396826CF2A9C00CE71F6 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA396726CF2A9C00CE71F6 /* Timer.swift */; };
 		EBDD46F826B3771E0016094C /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD46F726B3771D0016094C /* MemoryGame.swift */; };
 		EBDD46FA26B380590016094C /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD46F926B380590016094C /* Array+Identifiable.swift */; };
 		EBDD46FC26B3871D0016094C /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD46FB26B3871D0016094C /* EmojiMemoryGame.swift */; };
@@ -31,6 +32,7 @@
 		EBB95DAB26AA3B3500D42133 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EBB95DAD26AA3B3500D42133 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBB95DB326AA4D0B00D42133 /* CardMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMaker.swift; sourceTree = "<group>"; };
+		EBDA396726CF2A9C00CE71F6 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		EBDD46F726B3771D0016094C /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		EBDD46F926B380590016094C /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
 		EBDD46FB26B3871D0016094C /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				EB8F3E8026BCB6E200FEA14C /* Array+OnlyOrNothing.swift */,
 				EB8F3E8226BCBAF800FEA14C /* Grid.swift */,
 				EB8F3E8426BCC0A600FEA14C /* GridLayout.swift */,
+				EBDA396726CF2A9C00CE71F6 /* Timer.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				EBDD46FA26B380590016094C /* Array+Identifiable.swift in Sources */,
 				EBB95DA726AA3B3200D42133 /* ContentView.swift in Sources */,
 				EBB95DA526AA3B3200D42133 /* MemorizeApp.swift in Sources */,
+				EBDA396826CF2A9C00CE71F6 /* Timer.swift in Sources */,
 				EB8F3E8326BCBAF800FEA14C /* Grid.swift in Sources */,
 				EBDD46F826B3771E0016094C /* MemoryGame.swift in Sources */,
 				EBB95DB426AA4D0B00D42133 /* CardMaker.swift in Sources */,
