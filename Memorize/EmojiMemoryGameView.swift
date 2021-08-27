@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct EmojiMemoryGameView: View {
     
     @ObservedObject
     var viewModel: EmojiMemoryGame
+    
+    var theme: String
     
     var body: some View {
         
@@ -22,7 +24,7 @@ struct ContentView: View {
                 Spacer()
             }else {
                 Grid(viewModel.cards) { card in
-                    CardView(card: card)
+                    CardView(card: card, themeCornerRadius: viewModel.themeCornerRadius)
                         .onTapGesture {
                             withAnimation {
                                 viewModel.choose(card: card)
@@ -37,7 +39,8 @@ struct ContentView: View {
                 }
             }
         }
-        .foregroundColor(Color.red)
+        .foregroundColor(viewModel.themeColor)
+        .navigationTitle(theme)
     
     }
     
@@ -47,6 +50,7 @@ struct ContentView: View {
 struct CardView: View {
     
     var card: MemoryGame<String>.Card
+    var themeCornerRadius: CGFloat
     
     @State
     private var bonusTimeRemaining: Double = 0
@@ -84,7 +88,7 @@ struct CardView: View {
                 
                 //MAIS À FRENTE
             }
-            .makeCard(isFaceUp: card.isFaceUp)
+            .makeCard(isFaceUp: card.isFaceUp, cornerRadius: themeCornerRadius)
             .padding(4)
             .opacity(card.isMatched ? 0 : 1)
         }
@@ -93,11 +97,5 @@ struct CardView: View {
     
     private func fontSize(for size: CGSize) -> CGFloat {
         return min(size.width, size.height) * 0.6
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(viewModel: EmojiMemoryGame())
     }
 }
